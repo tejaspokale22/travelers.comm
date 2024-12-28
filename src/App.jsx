@@ -30,7 +30,7 @@ function App() {
       <main>
         <Outlet/>
       </main>
-      <Foot/>/
+      <Foot/>
     </>
   ):null
 }
