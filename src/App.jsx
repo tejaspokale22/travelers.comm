@@ -26,7 +26,7 @@ function App() {
   
   return !loading ?(
     <>
-      {/* <Header/> */}
+      <Header/>
       <main>
         <Outlet/>
       </main>
