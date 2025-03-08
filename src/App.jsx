@@ -10,6 +10,14 @@ import authService from './appwrite/auth'
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/serviceWorker.js')
+            .then((reg) => console.log('Service Worker Registered!', reg))
+            .catch((err) => console.error('Service Worker Registration Failed:', err));
+    });
+}
+
 
   useEffect(() => {
     // alert("App running user data fetching")
