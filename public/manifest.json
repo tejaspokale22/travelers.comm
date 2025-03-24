@@ -1,19 +1,21 @@
 {
-  "name": "travelers.comm",
-  "short_name": "travelers.comm",
+  "name": "Travelers Community",
+  "short_name": "TravelersComm",
   "start_url": "/",
   "display": "standalone",
+  "scope": "/",
   "background_color": "#ffffff",
   "theme_color": "#317EFB",
-  "description": "travelers community",
+  "orientation": "portrait-primary",
+  "description": "Join the Travelers Community and plan your trips efficiently.",
   "icons": [
     {
-      "src": "/travel.png",
+      "src": "travel.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/travel.png",
+      "src": "travel.png",
       "type": "image/png",
       "sizes": "512x512"
     }
