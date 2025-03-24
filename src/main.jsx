@@ -18,6 +18,7 @@ import ExperienceShareForm from './pages/ExperienceShareForm.jsx'
 import ViewResponse from './pages/ViewResponse.jsx'
 import UpdateJournal from './pages/UpdateJournal.jsx'
 import UpdateResponse from './pages/UpdateResponse.jsx'
+import TravelPlanner from './pages/TravelPlanner'
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,12 @@ const router = createBrowserRouter([
             path: "/profile",
             element:<AuthLayout authentication>
             <Profile/>
+        </AuthLayout>,
+        },
+        {
+            path: "/travelplanner",
+            element:<AuthLayout authentication>
+            <TravelPlanner/>
         </AuthLayout>,
         },
         {

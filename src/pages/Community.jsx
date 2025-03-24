@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Contain from '../components/container/Contain';
 import { fetchResponses, deleteResponse, likeResponse, unlikeResponse } from '../store/responseSlice'; 
 import communityService from '../appwrite/response';
-import { Edit, Trash2, PlusCircle } from 'react-feather';
+import { Edit, Trash2, PlusCircle, Zap } from 'react-feather';
 import Like from '../assets/heart.png'
 import Unlike from '../assets/like.png'
 
@@ -71,16 +71,22 @@ function Community() {
   };
 
   return (
-    <div className="min-h-screen p-4 bg-gray-900">
+    <div className="p-4 min-h-screen bg-gray-900">
       <Contain>
-        <div className="relative min-h-screen p-4 text-white bg-gray-800 rounded-lg shadow-md sm:p-6">
+        <div className="relative p-4 min-h-screen text-white bg-gray-800 rounded-lg shadow-md sm:p-6">
           <h1 className="text-2xl font-bold text-center sm:text-3xl">Community Responses</h1>
 
-          <div className="w-full mt-16 lg:absolute lg:top-4 lg:right-4 lg:space-x-4 lg:flex lg:justify-end lg:items-center lg:w-auto">
+          <div className="mt-16 w-full lg:absolute lg:top-4 lg:right-4 lg:space-x-4 lg:flex lg:justify-end lg:items-center lg:w-auto">
+            <Link
+              to="/travelplanner"
+              className="flex items-center px-4 py-1 mb-2 w-full max-w-xs text-white bg-purple-600 rounded-md transition-transform duration-300 hover:bg-purple-700 hover:scale-105 lg:w-auto lg:mb-0"
+            >
+              <Zap className="mr-2" /> AI Trip Planner
+            </Link>
             {user && (
               <Link
                 to="/experienceShareForm"
-                className="flex items-center w-full max-w-xs px-4 py-1 text-white transition-transform duration-300 bg-blue-500 rounded-md hover:bg-blue-700 hover:scale-105 lg:w-auto"
+                className="flex items-center px-4 py-1 w-full max-w-xs text-white bg-blue-500 rounded-md transition-transform duration-300 hover:bg-blue-700 hover:scale-105 lg:w-auto"
               >
                 <PlusCircle className="mr-2" /> Share your Travel Experience
               </Link>
@@ -91,7 +97,7 @@ function Community() {
             <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {Array.isArray(responses) &&
                 responses.map((response) => (
-                  <div key={response.$id} className="relative flex flex-col justify-between p-5 bg-gray-900 rounded-lg shadow-md hover:shadow-lg">
+                  <div key={response.$id} className="flex relative flex-col justify-between p-5 bg-gray-900 rounded-lg shadow-md hover:shadow-lg">
                     <div>
                       {user && (
                         <div className="flex items-center mb-2">
@@ -115,7 +121,7 @@ function Community() {
                       <p className="text-md sm:text-lg">Travelled to {response.touristPlaceName}</p>
                       <p className="text-sm sm:text-base">{response.location}</p>
                     </div>
-                    <div className="flex items-end justify-between mt-4">
+                    <div className="flex justify-between items-end mt-4">
                       <Link
                         to={`/response/${response.$id}`}
                         className="px-2 py-1 text-sm font-semibold text-white bg-green-500 rounded hover:bg-green-700 sm:text-base"
@@ -126,14 +132,14 @@ function Community() {
                         {user && user.$id === response.userId && (
                           <>
                             <button
-                              className="flex items-center justify-center px-1 py-1 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-700 sm:text-base"
+                              className="flex justify-center items-center px-1 py-1 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-700 sm:text-base"
                               onClick={() => handleResponseDelete(response.$id)}
                             >
                               <Trash2 className="mr-1 sm:mr-2" />
                             </button>
                             <Link
                               to={`/updateresponse/${response.$id}`}
-                              className="flex items-center justify-center px-1 py-1 text-sm font-semibold text-white bg-yellow-500 rounded hover:bg-yellow-700 sm:text-base"
+                              className="flex justify-center items-center px-1 py-1 text-sm font-semibold text-white bg-yellow-500 rounded hover:bg-yellow-700 sm:text-base"
                             >
                               <Edit className="mr-1 sm:mr-2" />
                             </Link>
